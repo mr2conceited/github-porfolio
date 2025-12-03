@@ -463,7 +463,7 @@
             background: var(--gradient);
         }
 
-        .filter-btn[data-filter="web"]::before {
+        .filter-btn[data-filter="websites"]::before {
             background: var(--primary-color);
         }
 
@@ -550,7 +550,7 @@
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
         }
 
-        .category-web {
+        .category-websites {
             background: var(--primary-color);
         }
 
@@ -689,7 +689,7 @@
             transition: var(--transition);
         }
 
-        .tech-tag.web {
+        .tech-tag.websites {
             background: rgba(124, 58, 237, 0.1);
             color: var(--primary-color);
             border-color: rgba(124, 58, 237, 0.2);
@@ -717,7 +717,7 @@
             transform: translateY(-2px);
         }
 
-        .tech-tag.web:hover {
+        .tech-tag.websites:hover {
             background: var(--primary-color);
             color: white;
         }
@@ -807,7 +807,7 @@
             padding: 2rem;
         }
 
-        .preview-placeholder.web {
+        .preview-placeholder.websites {
             background: linear-gradient(135deg, #7c3aed, #06b6d4);
         }
 
@@ -968,7 +968,7 @@
             font-size: 1.5rem;
         }
 
-        .skill-category.web h3 {
+        .skill-category.websites h3 {
             color: var(--primary-color);
         }
 
@@ -999,7 +999,7 @@
             transition: var(--transition);
         }
 
-        .skill-item.web {
+        .skill-item.websites {
             background: rgba(124, 58, 237, 0.1);
             color: var(--primary-color);
             border-color: rgba(124, 58, 237, 0.2);
@@ -1021,7 +1021,7 @@
             transform: scale(1.05);
         }
 
-        .skill-item.web:hover {
+        .skill-item.websites:hover {
             background: var(--primary-color);
             color: white;
             border-color: var(--primary-color);
@@ -1380,7 +1380,7 @@
                     <h2 class="subtitle">Full Stack & Mobile Developer</h2>
                     <p class="description">
                         I create modern applications across multiple platforms. Below you'll find all my projects 
-                        including websites, C# applications, Kotlin mobile apps, and APIs - each with preview images!
+                        including websites from my "websites" repo, C# applications, Kotlin mobile apps, and APIs.
                     </p>
                     <div class="hero-buttons">
                         <a href="#projects" class="btn primary">
@@ -1393,7 +1393,7 @@
                 </div>
                 <div class="hero-image">
                     <div class="profile-card floating">
-                        <img src="Images/IMG-20250823-WA0104 (3).jpg" 
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                              alt="Brooklyn Wangson" class="profile-img" id="profileImage">
                         <div class="stats">
                             <div class="stat">
@@ -1430,7 +1430,7 @@
                 <button class="filter-btn active" data-filter="all">
                     <i class="fas fa-layer-group"></i> All Projects
                 </button>
-                <button class="filter-btn" data-filter="web">
+                <button class="filter-btn" data-filter="websites">
                     <i class="fas fa-globe"></i> Websites
                 </button>
                 <button class="filter-btn" data-filter="csharp">
@@ -1496,12 +1496,12 @@
                         Each project represents a different aspect of software development and problem-solving.
                     </p>
                     <div class="skill-list">
-                        <span class="skill-item web">Full Stack</span>
+                        <span class="skill-item websites">Full Stack</span>
                         <span class="skill-item csharp">C#/.NET</span>
                         <span class="skill-item kotlin">Kotlin</span>
-                        <span class="skill-item web">Cloud</span>
-                        <span class="skill-item web">Databases</span>
-                        <span class="skill-item web">DevOps</span>
+                        <span class="skill-item websites">Cloud</span>
+                        <span class="skill-item websites">Databases</span>
+                        <span class="skill-item websites">DevOps</span>
                     </div>
                 </div>
             </div>
@@ -1513,17 +1513,17 @@
         <div class="container">
             <h2 class="section-title">Technical <span class="highlight">Skills</span></h2>
             <div class="skills-grid">
-                <div class="skill-category web">
+                <div class="skill-category websites">
                     <h3><i class="fas fa-globe"></i> Web Development</h3>
                     <div class="skill-list">
-                        <span class="skill-item web">HTML5/CSS3</span>
-                        <span class="skill-item web">JavaScript</span>
-                        <span class="skill-item web">React.js</span>
-                        <span class="skill-item web">Node.js</span>
-                        <span class="skill-item web">TypeScript</span>
-                        <span class="skill-item web">REST APIs</span>
-                        <span class="skill-item web">GitHub Pages</span>
-                        <span class="skill-item web">Bootstrap</span>
+                        <span class="skill-item websites">HTML5/CSS3</span>
+                        <span class="skill-item websites">JavaScript</span>
+                        <span class="skill-item websites">React.js</span>
+                        <span class="skill-item websites">Node.js</span>
+                        <span class="skill-item websites">TypeScript</span>
+                        <span class="skill-item websites">REST APIs</span>
+                        <span class="skill-item websites">GitHub Pages</span>
+                        <span class="skill-item websites">Bootstrap</span>
                     </div>
                 </div>
                 <div class="skill-category csharp">
@@ -1623,6 +1623,7 @@
         // ===== CONFIGURATION =====
         const CONFIG = {
             githubUsername: 'mr2conceited',
+            websitesRepo: 'websites', // Your websites repository
             yourName: 'Brooklyn Wangson',
             yourTitle: 'Full Stack & Mobile Developer',
             yourBio: 'I create modern applications across multiple platforms including web, C#, Kotlin, and mobile development.',
@@ -1631,97 +1632,9 @@
             portfolioUrl: 'https://mr2conceited.github.io'
         };
 
-        // Sample projects for different categories
-        const SAMPLE_PROJECTS = [
-            // Web Projects
-            {
-                name: "Portfolio Website",
-                description: "A responsive portfolio website showcasing my web development projects.",
-                repoName: "portfolio",
-                liveDemo: "https://mr2conceited.github.io/portfolio",
-                repoUrl: "https://github.com/mr2conceited/portfolio",
-                category: "web",
-                tech: ["HTML5", "CSS3", "JavaScript", "GitHub Pages"],
-                hasPages: true,
-                language: "HTML"
-            },
-            {
-                name: "E-commerce Platform",
-                description: "Modern e-commerce website with product listings and shopping cart.",
-                repoName: "ecommerce",
-                liveDemo: "https://mr2conceited.github.io/ecommerce",
-                repoUrl: "https://github.com/mr2conceited/ecommerce",
-                category: "web",
-                tech: ["React", "Node.js", "MongoDB", "Stripe"],
-                hasPages: true,
-                language: "JavaScript"
-            },
-            // C# Projects
-            {
-                name: "Inventory Management System",
-                description: "Desktop application for managing inventory with C# and .NET.",
-                repoName: "inventory-system",
-                repoUrl: "https://github.com/mr2conceited/inventory-system",
-                category: "csharp",
-                tech: ["C#", ".NET Core", "Windows Forms", "SQL Server"],
-                hasPages: false,
-                language: "C#"
-            },
-            {
-                name: "Task Manager API",
-                description: "RESTful API for task management built with ASP.NET Core.",
-                repoName: "task-api",
-                repoUrl: "https://github.com/mr2conceited/task-api",
-                category: "csharp",
-                tech: ["C#", "ASP.NET Core", "Entity Framework", "JWT"],
-                hasPages: false,
-                language: "C#"
-            },
-            // Kotlin Projects
-            {
-                name: "Weather App",
-                description: "Android weather application with location-based forecasts.",
-                repoName: "weather-app-android",
-                repoUrl: "https://github.com/mr2conceited/weather-app-android",
-                category: "kotlin",
-                tech: ["Kotlin", "Android SDK", "Retrofit", "Room DB"],
-                hasPages: false,
-                language: "Kotlin"
-            },
-            {
-                name: "Note Taking App",
-                description: "Mobile note-taking application with offline support.",
-                repoName: "notes-app",
-                repoUrl: "https://github.com/mr2conceited/notes-app",
-                category: "kotlin",
-                tech: ["Kotlin", "Jetpack Compose", "Room", "Coroutines"],
-                hasPages: false,
-                language: "Kotlin"
-            },
-            // Mobile Projects
-            {
-                name: "Fitness Tracker",
-                description: "Cross-platform fitness tracking mobile application.",
-                repoName: "fitness-tracker",
-                liveDemo: "https://mr2conceited.github.io/fitness-tracker",
-                repoUrl: "https://github.com/mr2conceited/fitness-tracker",
-                category: "mobile",
-                tech: ["React Native", "Firebase", "Redux", "Maps"],
-                hasPages: true,
-                language: "JavaScript"
-            },
-            // API Projects
-            {
-                name: "Authentication Service",
-                description: "Secure authentication microservice with JWT tokens.",
-                repoName: "auth-service",
-                repoUrl: "https://github.com/mr2conceited/auth-service",
-                category: "api",
-                tech: ["Node.js", "Express", "MongoDB", "JWT"],
-                hasPages: false,
-                language: "JavaScript"
-            }
-        ];
+        // ===== GLOBAL STATE =====
+        let allProjects = [];
+        let websitesFromRepo = [];
 
         // ===== DOM ELEMENTS =====
         const themeToggle = document.getElementById('themeToggle');
@@ -1800,9 +1713,35 @@
         // ===== PROJECTS SYSTEM =====
         async function initializeProjects() {
             try {
-                await fetchProjectsFromGitHub();
+                // First fetch all projects from GitHub
+                allProjects = await fetchAllProjectsFromGitHub();
+                
+                // Then specifically fetch websites from the "websites" repository
+                websitesFromRepo = await fetchWebsitesFromRepo();
+                
+                // Combine both datasets
+                const combinedProjects = [...allProjects];
+                
+                // Add websites from the "websites" repo as separate projects
+                websitesFromRepo.forEach(website => {
+                    combinedProjects.push(website);
+                });
+                
+                // Update stats
+                projectCountElement.textContent = combinedProjects.length;
+                categoryCountElement.textContent = countCategories(combinedProjects);
+                lastUpdatedElement.textContent = formatDate(new Date());
+                
+                if (combinedProjects.length === 0) {
+                    showNoProjectsMessage();
+                    return;
+                }
+                
+                // Display all projects initially
+                displayProjects(combinedProjects, 'all');
+                
             } catch (error) {
-                console.log('GitHub API failed, using sample projects:', error.message);
+                console.log('GitHub API failed:', error.message);
                 showSampleProjects();
             }
             
@@ -1810,7 +1749,7 @@
             initializeFilterButtons();
         }
 
-        async function fetchProjectsFromGitHub() {
+        async function fetchAllProjectsFromGitHub() {
             try {
                 // Fetch user repositories
                 const response = await fetch(`https://api.github.com/users/${CONFIG.githubUsername}/repos?sort=updated&per_page=100`);
@@ -1821,21 +1760,40 @@
                 
                 const repos = await response.json();
                 
-                // Filter and categorize repositories
-                const projects = categorizeRepositories(repos);
-                
-                // Update stats
-                projectCountElement.textContent = projects.length;
-                categoryCountElement.textContent = countCategories(projects);
-                lastUpdatedElement.textContent = formatDate(new Date());
-                
-                if (projects.length === 0) {
-                    showNoProjectsMessage();
-                    return;
-                }
-                
-                // Display projects
-                displayProjects(projects);
+                // Filter and categorize repositories (excluding the "websites" repo itself)
+                return repos
+                    .filter(repo => {
+                        // Skip forks, the "websites" repo itself, and certain repo types
+                        const skipKeywords = ['portfolio', 'github.io', 'test', 'demo', 'example', 'template'];
+                        const shouldSkip = skipKeywords.some(keyword => 
+                            repo.name.toLowerCase().includes(keyword.toLowerCase())
+                        );
+                        
+                        return !repo.fork && 
+                               repo.name !== CONFIG.websitesRepo &&
+                               !shouldSkip &&
+                               repo.name !== CONFIG.githubUsername;
+                    })
+                    .map(repo => {
+                        const category = determineCategory(repo);
+                        const liveDemoUrl = repo.has_pages ? 
+                            `https://${CONFIG.githubUsername}.github.io/${repo.name}` : 
+                            null;
+                        
+                        return {
+                            name: formatProjectName(repo.name),
+                            description: repo.description || `A ${category} project.`,
+                            repoName: repo.name,
+                            liveDemo: liveDemoUrl,
+                            repoUrl: repo.html_url,
+                            category: category,
+                            tech: getTechnologies(repo, category),
+                            hasPages: repo.has_pages || false,
+                            language: repo.language || 'Various',
+                            updated: repo.updated_at,
+                            isFromWebsitesRepo: false
+                        };
+                    });
                 
             } catch (error) {
                 console.error('GitHub API Error:', error);
@@ -1843,38 +1801,48 @@
             }
         }
 
-        function categorizeRepositories(repos) {
-            return repos
-                .filter(repo => {
-                    // Skip forks and certain repo types
-                    const skipKeywords = ['portfolio', 'github.io', 'test', 'demo', 'example', 'template'];
-                    const shouldSkip = skipKeywords.some(keyword => 
-                        repo.name.toLowerCase().includes(keyword.toLowerCase())
-                    );
-                    
-                    return !repo.fork && 
-                           !shouldSkip &&
-                           repo.name !== CONFIG.githubUsername;
-                })
-                .map(repo => {
-                    const category = determineCategory(repo);
-                    const liveDemoUrl = repo.has_pages ? 
-                        `https://${CONFIG.githubUsername}.github.io/${repo.name}` : 
-                        null;
+        async function fetchWebsitesFromRepo() {
+            try {
+                // Fetch the contents of the "websites" repository
+                const response = await fetch(`https://api.github.com/repos/${CONFIG.githubUsername}/${CONFIG.websitesRepo}/contents/`);
+                
+                if (!response.ok) {
+                    console.log(`"${CONFIG.websitesRepo}" repository not found or empty`);
+                    return [];
+                }
+                
+                const contents = await response.json();
+                
+                // Filter for directories (these are our websites)
+                const websiteDirs = contents.filter(item => 
+                    item.type === 'dir' && 
+                    !item.name.startsWith('.') && 
+                    !item.name.toLowerCase().includes('readme')
+                );
+                
+                // Create project objects for each website directory
+                return websiteDirs.map(dir => {
+                    const liveDemoUrl = `https://${CONFIG.githubUsername}.github.io/${CONFIG.websitesRepo}/${dir.name}`;
                     
                     return {
-                        name: formatProjectName(repo.name),
-                        description: repo.description || `A ${category} project.`,
-                        repoName: repo.name,
+                        name: formatProjectName(dir.name),
+                        description: `A website project from my "${CONFIG.websitesRepo}" repository.`,
+                        repoName: `${CONFIG.websitesRepo}/${dir.name}`,
                         liveDemo: liveDemoUrl,
-                        repoUrl: repo.html_url,
-                        category: category,
-                        tech: getTechnologies(repo, category),
-                        hasPages: repo.has_pages || false,
-                        language: repo.language || 'Various',
-                        updated: repo.updated_at
+                        repoUrl: `https://github.com/${CONFIG.githubUsername}/${CONFIG.websitesRepo}/tree/main/${dir.name}`,
+                        category: 'websites',
+                        tech: ['HTML5', 'CSS3', 'JavaScript', 'GitHub Pages'],
+                        hasPages: true,
+                        language: 'HTML/CSS/JS',
+                        updated: new Date().toISOString(),
+                        isFromWebsitesRepo: true
                     };
                 });
+                
+            } catch (error) {
+                console.error('Error fetching websites from repo:', error);
+                return [];
+            }
         }
 
         function determineCategory(repo) {
@@ -1925,8 +1893,8 @@
                 return 'api';
             }
             
-            // Default to web
-            return 'web';
+            // Default to web (but we'll rename this to "websites" in display)
+            return 'websites';
         }
 
         function getTechnologies(repo, category) {
@@ -1967,7 +1935,7 @@
                 }
             }
             
-            if (category === 'web') {
+            if (category === 'websites') {
                 if (!tech.includes('HTML5')) tech.push('HTML5');
                 if (!tech.includes('CSS3')) tech.push('CSS3');
                 if (!tech.includes('JavaScript')) tech.push('JavaScript');
@@ -1980,24 +1948,77 @@
         function showSampleProjects() {
             projectsGrid.innerHTML = '';
             
+            const sampleProjects = [
+                {
+                    name: "Portfolio Website",
+                    description: "A responsive portfolio website showcasing my web development projects.",
+                    repoName: "portfolio",
+                    liveDemo: "https://mr2conceited.github.io/portfolio",
+                    repoUrl: "https://github.com/mr2conceited/portfolio",
+                    category: "websites",
+                    tech: ["HTML5", "CSS3", "JavaScript", "GitHub Pages"],
+                    hasPages: true,
+                    language: "HTML"
+                },
+                {
+                    name: "E-commerce Platform",
+                    description: "Modern e-commerce website with product listings and shopping cart.",
+                    repoName: "ecommerce",
+                    liveDemo: "https://mr2conceited.github.io/ecommerce",
+                    repoUrl: "https://github.com/mr2conceited/ecommerce",
+                    category: "websites",
+                    tech: ["React", "Node.js", "MongoDB", "Stripe"],
+                    hasPages: true,
+                    language: "JavaScript"
+                },
+                {
+                    name: "Inventory Management System",
+                    description: "Desktop application for managing inventory with C# and .NET.",
+                    repoName: "inventory-system",
+                    repoUrl: "https://github.com/mr2conceited/inventory-system",
+                    category: "csharp",
+                    tech: ["C#", ".NET Core", "Windows Forms", "SQL Server"],
+                    hasPages: false,
+                    language: "C#"
+                },
+                {
+                    name: "Weather App",
+                    description: "Android weather application with location-based forecasts.",
+                    repoName: "weather-app-android",
+                    repoUrl: "https://github.com/mr2conceited/weather-app-android",
+                    category: "kotlin",
+                    tech: ["Kotlin", "Android SDK", "Retrofit", "Room DB"],
+                    hasPages: false,
+                    language: "Kotlin"
+                }
+            ];
+            
             // Update stats with sample data
-            projectCountElement.textContent = SAMPLE_PROJECTS.length;
-            categoryCountElement.textContent = countCategories(SAMPLE_PROJECTS);
+            projectCountElement.textContent = sampleProjects.length;
+            categoryCountElement.textContent = countCategories(sampleProjects);
             lastUpdatedElement.textContent = 'Today';
             
-            SAMPLE_PROJECTS.forEach((project, index) => {
-                const projectCard = createProjectCard(project, index);
-                projectsGrid.appendChild(projectCard);
-            });
+            displayProjects(sampleProjects, 'all');
         }
 
-        function displayProjects(projects) {
+        function displayProjects(projects, filter = 'all') {
             projectsGrid.innerHTML = '';
             
-            // Sort projects by updated date (newest first)
-            projects.sort((a, b) => new Date(b.updated) - new Date(a.updated));
+            // Filter projects based on selection
+            let filteredProjects = projects;
+            if (filter !== 'all') {
+                filteredProjects = projects.filter(project => project.category === filter);
+            }
             
-            projects.forEach((project, index) => {
+            // Sort projects by updated date (newest first)
+            filteredProjects.sort((a, b) => new Date(b.updated) - new Date(a.updated));
+            
+            if (filteredProjects.length === 0) {
+                showNoProjectsMessage(filter);
+                return;
+            }
+            
+            filteredProjects.forEach((project, index) => {
                 const projectCard = createProjectCard(project, index);
                 projectsGrid.appendChild(projectCard);
             });
@@ -2009,7 +2030,7 @@
             card.dataset.category = project.category;
             card.style.animationDelay = `${index * 0.1}s`;
             
-            // Get preview image URL (using GitHub repo screenshot or placeholder)
+            // Get preview image URL
             const previewImageUrl = getPreviewImageUrl(project);
             
             // Get category label
@@ -2021,7 +2042,7 @@
                     <img src="${previewImageUrl}" 
                          alt="${project.name}" 
                          loading="lazy"
-                         onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 220%22><rect width=%22400%22 height=%22220%22 fill=%22%23${project.category === 'csharp' ? '239120' : project.category === 'kotlin' ? '7F52FF' : '7c3aed'}%22/><text x=%22200%22 y=%22110%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22white%22 text-anchor=%22middle%22>${encodeURIComponent(project.name)}</text></svg>'">
+                         onerror="this.onerror=null; this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 220%22><rect width=%22400%22 height=%22220%22 fill=%22%23${project.category === 'csharp' ? '239120' : project.category === 'kotlin' ? '7F52FF' : '7c3aed'}%22/><text x=%22200%22 y=%22110%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22white%22 text-anchor=%22middle%22>${encodeURIComponent(project.name.substring(0, 20))}</text></svg>'">
                     ${project.hasPages ? `
                     <div class="project-overlay">
                         <a href="${project.liveDemo}" target="_blank" class="demo-btn">
@@ -2054,22 +2075,31 @@
 
         function getPreviewImageUrl(project) {
             // Try to get screenshot from GitHub repo
-            const screenshotUrl = `https://raw.githubusercontent.com/${CONFIG.githubUsername}/${project.repoName}/main/screenshot.png`;
+            let screenshotUrl;
             
-            // Use category-based placeholder if screenshot doesn't exist
+            if (project.isFromWebsitesRepo) {
+                // For websites from the "websites" repo
+                const [repoName, dirName] = project.repoName.split('/');
+                screenshotUrl = `https://raw.githubusercontent.com/${CONFIG.githubUsername}/${repoName}/main/${dirName}/screenshot.png`;
+            } else {
+                // For regular projects
+                screenshotUrl = `https://raw.githubusercontent.com/${CONFIG.githubUsername}/${project.repoName}/main/screenshot.png`;
+            }
+            
+            // Add timestamp to prevent caching
             return `${screenshotUrl}?t=${Date.now()}`;
         }
 
         function getCategoryLabel(category) {
             const labels = {
-                'web': { text: 'Website', class: 'category-web' },
+                'websites': { text: 'Website', class: 'category-websites' },
                 'csharp': { text: 'C# Project', class: 'category-csharp' },
                 'kotlin': { text: 'Kotlin App', class: 'category-kotlin' },
                 'mobile': { text: 'Mobile App', class: 'category-mobile' },
                 'api': { text: 'API Service', class: 'category-api' }
             };
             
-            return labels[category] || { text: 'Project', class: 'category-web' };
+            return labels[category] || { text: 'Project', class: 'category-websites' };
         }
 
         function formatProjectName(name) {
@@ -2115,46 +2145,42 @@
                     
                     // Filter projects
                     const filter = button.dataset.filter;
-                    filterProjects(filter);
+                    
+                    // Combine all projects and websites from repo for display
+                    const combinedProjects = [...allProjects, ...websitesFromRepo];
+                    
+                    // Display filtered projects
+                    displayProjects(combinedProjects, filter);
                 });
             });
-        }
-
-        function filterProjects(filter) {
-            const cards = document.querySelectorAll('.project-card');
-            let visibleCount = 0;
-            
-            cards.forEach(card => {
-                if (filter === 'all' || card.dataset.category === filter) {
-                    card.style.display = 'block';
-                    visibleCount++;
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, 50);
-                } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 300);
-                }
-            });
-            
-            // If no projects match the filter, show message
-            if (visibleCount === 0) {
-                showNoProjectsMessage(filter);
-            }
         }
 
         function showNoProjectsMessage(filter) {
             const message = document.createElement('div');
             message.className = 'no-projects';
-            message.innerHTML = `
-                <i class="fas fa-search"></i>
-                <h3>No ${filter} Projects Found</h3>
-                <p>Try selecting a different category or check back soon for new projects!</p>
-            `;
+            
+            let messageText = '';
+            if (filter === 'websites') {
+                messageText = `
+                    <i class="fas fa-folder-open"></i>
+                    <h3>No Websites Found</h3>
+                    <p>No websites found in the "${CONFIG.websitesRepo}" repository.</p>
+                    <p style="margin-top: 1rem;">
+                        <a href="https://github.com/${CONFIG.githubUsername}/${CONFIG.websitesRepo}" 
+                           target="_blank" class="btn secondary" style="margin-top: 1rem;">
+                            <i class="fab fa-github"></i> View "${CONFIG.websitesRepo}" Repository
+                        </a>
+                    </p>
+                `;
+            } else {
+                messageText = `
+                    <i class="fas fa-search"></i>
+                    <h3>No ${filter} Projects Found</h3>
+                    <p>Try selecting a different category or check back soon for new projects!</p>
+                `;
+            }
+            
+            message.innerHTML = messageText;
             
             // Remove any existing message
             const existingMessage = projectsGrid.querySelector('.no-projects');
@@ -2231,7 +2257,7 @@
 
         // Auto-refresh project data every 10 minutes
         setInterval(() => {
-            fetchProjectsFromGitHub().catch(console.error);
+            initializeProjects().catch(console.error);
         }, 600000); // 10 minutes
 
         // Add typing effect to hero section
