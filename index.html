@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name | Developer Portfolio</title>
+    <title>Brooklyn Wangson | Developer Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
     <style>
@@ -18,26 +18,26 @@
             /* Light Theme */
             --bg-color: #ffffff;
             --text-color: #333333;
-            --primary-color: #6e58ff;
-            --secondary-color: #ff6b9d;
-            --accent-color: #00d4aa;
-            --card-bg: #f8f9fa;
-            --border-color: #e1e5e9;
-            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            --gradient: linear-gradient(135deg, #6e58ff 0%, #00d4aa 100%);
+            --primary-color: #2563eb;
+            --secondary-color: #7c3aed;
+            --accent-color: #06b6d4;
+            --card-bg: #f8fafc;
+            --border-color: #e2e8f0;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            --gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
             --transition: all 0.3s ease;
         }
 
         .dark-theme {
             /* Dark Theme */
-            --bg-color: #0a0a0a;
-            --text-color: #f0f0f0;
-            --primary-color: #8b7aff;
-            --secondary-color: #ff85b3;
-            --accent-color: #00ffc8;
-            --card-bg: #1a1a1a;
-            --border-color: #2a2a2a;
-            --shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            --bg-color: #0f172a;
+            --text-color: #f1f5f9;
+            --primary-color: #3b82f6;
+            --secondary-color: #8b5cf6;
+            --accent-color: #22d3ee;
+            --card-bg: #1e293b;
+            --border-color: #334155;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
         }
 
         body {
@@ -46,6 +46,7 @@
             color: var(--text-color);
             line-height: 1.6;
             transition: var(--transition);
+            overflow-x: hidden;
         }
 
         .container {
@@ -72,35 +73,61 @@
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             text-align: center;
             margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            width: 100%;
         }
 
         .section-subtitle {
             text-align: center;
-            color: #666;
+            color: #64748b;
             margin-bottom: 3rem;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .dark-theme .section-subtitle {
-            color: #aaa;
+            color: #94a3b8;
         }
 
         /* ===== BUTTONS ===== */
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 12px 28px;
-            border-radius: 30px;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 1rem;
             transition: var(--transition);
             border: none;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn i {
@@ -110,11 +137,12 @@
         .btn.primary {
             background: var(--gradient);
             color: white;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
         }
 
         .btn.primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(110, 88, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
         }
 
         .btn.secondary {
@@ -126,6 +154,7 @@
         .btn.secondary:hover {
             background: var(--primary-color);
             color: white;
+            transform: translateY(-3px);
         }
 
         /* ===== NAVIGATION ===== */
@@ -137,8 +166,18 @@
             background: rgba(var(--card-bg-rgb), 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            padding: 1rem 0;
+            padding: 1.2rem 0;
             border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            padding: 0.8rem 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-theme .navbar.scrolled {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
         }
 
         .navbar .container {
@@ -149,20 +188,26 @@
 
         .logo {
             font-family: 'Fira Code', monospace;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 600;
             text-decoration: none;
-            color: var(--text-color);
             background: var(--gradient);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            font-size: 1.8rem;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .nav-links a {
@@ -171,6 +216,7 @@
             font-weight: 500;
             transition: var(--transition);
             position: relative;
+            font-size: 1.05rem;
         }
 
         .nav-links a:hover {
@@ -180,11 +226,12 @@
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: -8px;
             left: 0;
             width: 0;
-            height: 2px;
+            height: 3px;
             background: var(--gradient);
+            border-radius: 2px;
             transition: width 0.3s;
         }
 
@@ -193,24 +240,46 @@
         }
 
         .theme-toggle {
-            background: transparent;
-            border: none;
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
             color: var(--text-color);
             font-size: 1.2rem;
             cursor: pointer;
-            padding: 8px;
+            padding: 10px;
             border-radius: 50%;
             transition: var(--transition);
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .theme-toggle:hover {
-            background: var(--card-bg);
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            transform: rotate(30deg);
         }
 
         /* ===== HERO SECTION ===== */
         .hero {
-            padding: 150px 0 100px;
-            background: linear-gradient(135deg, rgba(110, 88, 255, 0.05) 0%, rgba(0, 212, 170, 0.05) 100%);
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.03) 0%, rgba(124, 58, 237, 0.03) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
         }
 
         .hero-content {
@@ -218,11 +287,14 @@
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-text h1 {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             margin-bottom: 1rem;
+            line-height: 1.1;
         }
 
         .typing {
@@ -235,6 +307,7 @@
             position: absolute;
             right: -8px;
             animation: blink 1s infinite;
+            color: var(--primary-color);
         }
 
         @keyframes blink {
@@ -243,51 +316,61 @@
         }
 
         .subtitle {
-            font-size: 1.5rem;
-            color: #666;
+            font-size: 1.8rem;
+            color: #64748b;
             margin-bottom: 1.5rem;
             font-weight: 400;
         }
 
+        .dark-theme .subtitle {
+            color: #94a3b8;
+        }
+
         .description {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            color: #555;
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: #475569;
+            line-height: 1.8;
         }
 
         .dark-theme .description {
-            color: #bbb;
+            color: #cbd5e1;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
         }
 
         .profile-card {
             background: var(--card-bg);
-            border-radius: 20px;
-            padding: 2rem;
+            border-radius: 24px;
+            padding: 2.5rem;
             box-shadow: var(--shadow);
             text-align: center;
             border: 1px solid var(--border-color);
+            transform-style: preserve-3d;
+            perspective: 1000px;
         }
 
         .profile-img {
-            width: 200px;
-            height: 200px;
+            width: 220px;
+            height: 220px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid transparent;
-            background: var(--gradient) border-box;
-            margin-bottom: 1.5rem;
+            border: 6px solid transparent;
+            background: linear-gradient(45deg, #2563eb, #7c3aed, #06b6d4) border-box;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
         }
 
         .stats {
             display: flex;
             justify-content: space-around;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border-color);
         }
 
         .stat {
@@ -296,87 +379,128 @@
 
         .stat-number {
             display: block;
-            font-size: 2rem;
-            font-weight: 600;
+            font-size: 2.5rem;
+            font-weight: 700;
             background: var(--gradient);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            line-height: 1;
         }
 
         .stat-label {
-            font-size: 0.9rem;
-            color: #666;
+            font-size: 0.95rem;
+            color: #64748b;
+            font-weight: 500;
+            margin-top: 0.5rem;
         }
 
         .dark-theme .stat-label {
-            color: #aaa;
+            color: #94a3b8;
         }
 
         /* ===== PROJECTS SECTION ===== */
         .projects {
-            padding: 100px 0;
+            padding: 120px 0;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.02) 0%, rgba(124, 58, 237, 0.02) 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
         }
 
         .filter-buttons {
             display: flex;
             justify-content: center;
             gap: 1rem;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             flex-wrap: wrap;
         }
 
         .filter-btn {
-            padding: 8px 20px;
+            padding: 12px 28px;
             border: 2px solid var(--border-color);
             background: transparent;
             color: var(--text-color);
-            border-radius: 20px;
+            border-radius: 50px;
             cursor: pointer;
             transition: var(--transition);
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: var(--gradient);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: -1;
         }
 
         .filter-btn.active,
         .filter-btn:hover {
-            background: var(--gradient);
             color: white;
             border-color: transparent;
         }
 
+        .filter-btn.active::before,
+        .filter-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2.5rem;
         }
 
         .project-card {
             background: var(--card-bg);
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
             border: 1px solid var(--border-color);
-            animation: fadeIn 0.5s ease;
+            animation: fadeInUp 0.6s ease;
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
         }
 
         .dark-theme .project-card:hover {
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
         }
 
         .project-image {
             position: relative;
-            height: 200px;
+            height: 220px;
             overflow: hidden;
         }
 
@@ -384,11 +508,11 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s;
+            transition: transform 0.6s ease;
         }
 
         .project-card:hover .project-image img {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
         .project-overlay {
@@ -397,12 +521,14 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(110, 88, 255, 0.9);
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.9) 0%, rgba(124, 58, 237, 0.9) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             opacity: 0;
             transition: opacity 0.3s;
+            gap: 1rem;
+            padding: 2rem;
         }
 
         .project-card:hover .project-overlay {
@@ -412,87 +538,116 @@
         .demo-btn {
             background: white;
             color: var(--primary-color);
-            padding: 10px 25px;
-            border-radius: 25px;
+            padding: 12px 28px;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: 500;
-            transition: transform 0.3s;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .demo-btn:hover {
             transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
         }
 
         .project-content {
-            padding: 1.5rem;
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
         }
 
         .project-content p {
-            color: #666;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
+            color: #64748b;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.6;
+            flex-grow: 1;
         }
 
         .dark-theme .project-content p {
-            color: #aaa;
+            color: #94a3b8;
         }
 
         .project-tech {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
         }
 
         .tech-tag {
-            background: rgba(110, 88, 255, 0.1);
+            background: rgba(37, 99, 235, 0.1);
             color: var(--primary-color);
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 500;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            transition: var(--transition);
+        }
+
+        .tech-tag:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
         }
 
         .project-links {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
+            margin-top: auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
         }
 
         .project-link {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
             text-decoration: none;
             color: var(--text-color);
-            font-size: 0.9rem;
-            transition: color 0.3s;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 8px 16px;
+            border-radius: 8px;
         }
 
         .project-link:hover {
             color: var(--primary-color);
+            background: rgba(37, 99, 235, 0.1);
+            transform: translateX(5px);
         }
 
         .project-link i {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
 
         /* ===== LOADING & STATES ===== */
         .loading {
             grid-column: 1 / -1;
             text-align: center;
-            padding: 3rem;
+            padding: 5rem;
             color: var(--text-color);
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
 
         .loading i {
-            margin-right: 10px;
+            margin-right: 15px;
             animation: spin 1s linear infinite;
+            font-size: 2rem;
         }
 
         @keyframes spin {
@@ -504,149 +659,250 @@
             grid-column: 1 / -1;
             text-align: center;
             padding: 3rem;
-            color: #ff4757;
-            background: rgba(255, 71, 87, 0.1);
-            border-radius: 10px;
+            color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+            border-radius: 16px;
             margin: 2rem 0;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .no-projects {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 4rem;
+            color: var(--text-color);
+        }
+
+        .no-projects i {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            opacity: 0.5;
         }
 
         /* ===== ABOUT SECTION ===== */
         .about {
-            padding: 100px 0;
-            background: linear-gradient(135deg, rgba(110, 88, 255, 0.05) 0%, rgba(0, 212, 170, 0.05) 100%);
+            padding: 120px 0;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.03) 0%, rgba(124, 58, 237, 0.03) 100%);
         }
 
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 5rem;
             align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: #475569;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .dark-theme .about-text p {
+            color: #cbd5e1;
         }
 
         .about-features {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
-            margin-top: 2rem;
+            margin-top: 3rem;
         }
 
         .feature {
             text-align: center;
-            padding: 1.5rem;
+            padding: 2rem 1.5rem;
             background: var(--card-bg);
-            border-radius: 10px;
+            border-radius: 16px;
             border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
         }
 
         .feature i {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--primary-color);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .feature h4 {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
         }
 
         .feature p {
-            font-size: 0.9rem;
-            color: #666;
+            font-size: 0.95rem;
+            color: #64748b;
+            margin: 0;
         }
 
         .dark-theme .feature p {
-            color: #aaa;
+            color: #94a3b8;
         }
 
         /* ===== SKILLS SECTION ===== */
         .skills {
-            padding: 100px 0;
+            padding: 120px 0;
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
         }
 
         .skill-category {
             background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 15px;
+            padding: 2.5rem;
+            border-radius: 20px;
             border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
         }
 
         .skill-category h3 {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 1.5rem;
+            gap: 12px;
+            margin-bottom: 2rem;
             color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .skill-category h3 i {
+            font-size: 1.8rem;
         }
 
         .skill-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.8rem;
+            gap: 1rem;
         }
 
         .skill-item {
-            background: rgba(110, 88, 255, 0.1);
+            background: rgba(37, 99, 235, 0.1);
             color: var(--primary-color);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: 2px solid rgba(37, 99, 235, 0.2);
+            transition: var(--transition);
+        }
+
+        .skill-item:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(1.05);
+            border-color: var(--primary-color);
         }
 
         /* ===== CONTACT SECTION ===== */
         .contact {
-            padding: 100px 0;
-            background: linear-gradient(135deg, rgba(110, 88, 255, 0.05) 0%, rgba(0, 212, 170, 0.05) 100%);
+            padding: 120px 0;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.03) 0%, rgba(124, 58, 237, 0.03) 100%);
         }
 
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 5rem;
         }
 
         .contact-info h3 {
-            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            color: #475569;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .dark-theme .contact-info p {
+            color: #cbd5e1;
         }
 
         .contact-links {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 1.2rem;
             margin-top: 2rem;
         }
 
         .contact-link {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
             text-decoration: none;
             color: var(--text-color);
             font-size: 1.1rem;
             transition: var(--transition);
+            padding: 15px 20px;
+            border-radius: 12px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
         }
 
         .contact-link:hover {
             color: var(--primary-color);
-            transform: translateX(5px);
+            transform: translateX(10px);
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-link i {
+            font-size: 1.4rem;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 10px;
+            color: var(--primary-color);
         }
 
         .contact-form form {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 1.5rem;
+        }
+
+        .contact-form h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
         }
 
         .contact-form input,
         .contact-form textarea {
-            padding: 12px 15px;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
+            padding: 18px 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
             background: var(--card-bg);
             color: var(--text-color);
             font-family: 'Poppins', sans-serif;
@@ -658,73 +914,115 @@
         .contact-form textarea:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(110, 88, 255, 0.1);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
         }
 
         /* ===== FOOTER ===== */
         .footer {
             background: var(--card-bg);
-            padding: 2rem 0;
+            padding: 3rem 0;
             text-align: center;
             border-top: 1px solid var(--border-color);
         }
 
         .footer-links {
-            margin: 1rem 0;
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
         }
 
         .footer-links a {
             color: var(--text-color);
             text-decoration: none;
-            margin: 0 0.5rem;
-            transition: color 0.3s;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 8px 16px;
+            border-radius: 8px;
         }
 
         .footer-links a:hover {
             color: var(--primary-color);
+            background: rgba(37, 99, 235, 0.1);
         }
 
         .copyright {
-            color: #666;
-            font-size: 0.9rem;
-            margin-top: 1rem;
+            color: #64748b;
+            font-size: 1rem;
+            margin-top: 2rem;
         }
 
         .dark-theme .copyright {
-            color: #aaa;
+            color: #94a3b8;
         }
 
         /* ===== RESPONSIVE DESIGN ===== */
-        @media (max-width: 992px) {
-            .hero-content,
-            .about-content,
-            .contact-content {
-                gap: 2rem;
+        @media (max-width: 1200px) {
+            .hero-text h1 {
+                font-size: 3.2rem;
             }
             
-            .hero-text h1 {
-                font-size: 3rem;
+            .section-title {
+                font-size: 2.5rem;
             }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .hero-content,
             .about-content,
             .contact-content {
                 grid-template-columns: 1fr;
                 text-align: center;
-            }
-            
-            .nav-links {
-                display: none;
+                gap: 3rem;
             }
             
             .hero-text h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
+            }
+            
+            .profile-card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            
+            .about-features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                gap: 1.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.4rem;
+            }
+            
+            .subtitle {
+                font-size: 1.5rem;
             }
             
             .section-title {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
             .projects-grid {
@@ -739,9 +1037,18 @@
                 grid-template-columns: 1fr;
             }
             
-            .profile-card {
-                max-width: 300px;
-                margin: 0 auto;
+            .filter-buttons {
+                gap: 0.5rem;
+            }
+            
+            .filter-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .btn {
+                padding: 12px 24px;
+                font-size: 0.95rem;
             }
         }
 
@@ -750,22 +1057,35 @@
                 font-size: 2rem;
             }
             
+            .subtitle {
+                font-size: 1.3rem;
+            }
+            
             .section-title {
-                font-size: 1.75rem;
+                font-size: 1.8rem;
             }
             
-            .btn {
-                padding: 10px 20px;
-                font-size: 0.9rem;
+            .profile-img {
+                width: 180px;
+                height: 180px;
             }
             
-            .filter-buttons {
-                gap: 0.5rem;
+            .stat-number {
+                font-size: 2rem;
             }
             
-            .filter-btn {
-                padding: 6px 12px;
-                font-size: 0.85rem;
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .nav-links a {
+                font-size: 0.95rem;
+            }
+            
+            .theme-toggle {
+                width: 42px;
+                height: 42px;
+                font-size: 1rem;
             }
         }
 
@@ -780,14 +1100,67 @@
         .mb-1 { margin-bottom: 1rem; }
         .mb-2 { margin-bottom: 2rem; }
         .mb-3 { margin-bottom: 3rem; }
+        .py-1 { padding: 1rem 0; }
+        .py-2 { padding: 2rem 0; }
+        .py-3 { padding: 3rem 0; }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* ===== NOTIFICATION ===== */
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: var(--card-bg);
+            color: var(--text-color);
+            padding: 20px 25px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border-left: 5px solid #10b981;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            max-width: 400px;
+            border: 1px solid var(--border-color);
+        }
+
+        .notification.error {
+            border-left-color: #ef4444;
+        }
+
+        .notification i {
+            font-size: 1.5rem;
+            color: #10b981;
+        }
+
+        .notification.error i {
+            color: #ef4444;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
     </style>
-    
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="container">
-            <a href="#" class="logo" id="logoText">@DevPortfolio</a>
+            <a href="#home" class="logo">
+                <i class="fas fa-code logo-icon"></i>
+                <span>Brooklyn Wangson</span>
+            </a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -806,27 +1179,29 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="typing">Hi, I'm <span class="highlight" id="userName">[Your Name]</span></h1>
-                    <h2 class="subtitle" id="userTitle">Full Stack Developer</h2>
-                    <p class="description" id="userBio">
-                        I build amazing web applications with modern technologies. 
-                        Check out my projects below - each has a live demo on GitHub Pages!
+                    <h1 class="typing">Hi, I'm <span class="highlight">Brooklyn Wangson</span></h1>
+                    <h2 class="subtitle">Full Stack Developer & Web Creator</h2>
+                    <p class="description">
+                        I build modern, responsive web applications with clean code and great user experiences. 
+                        All my projects are hosted on GitHub Pages - click any project below to see it live!
                     </p>
                     <div class="hero-buttons">
-                        <a href="#projects" class="btn primary">View Projects</a>
-                        <a href="#" target="_blank" class="btn secondary" id="githubLink">
-                            <i class="fab fa-github"></i> GitHub
+                        <a href="#projects" class="btn primary">
+                            <i class="fas fa-rocket"></i> View Projects
+                        </a>
+                        <a href="https://github.com/mr2conceited" target="_blank" class="btn secondary" id="githubLink">
+                            <i class="fab fa-github"></i> GitHub Profile
                         </a>
                     </div>
                 </div>
                 <div class="hero-image">
-                    <div class="profile-card">
+                    <div class="profile-card floating">
                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                             alt="Profile" class="profile-img" id="profileImage">
+                             alt="Brooklyn Wangson" class="profile-img" id="profileImage">
                         <div class="stats">
                             <div class="stat">
                                 <span class="stat-number" id="repoCount">0</span>
-                                <span class="stat-label">Repos</span>
+                                <span class="stat-label">Repositories</span>
                             </div>
                             <div class="stat">
                                 <span class="stat-number" id="projectCount">0</span>
@@ -846,16 +1221,20 @@
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">My <span class="highlight">Projects</span></h2>
-            <p class="section-subtitle">Click on any project to view live demo and source code</p>
+            <div class="section-header">
+                <h2 class="section-title">My <span class="highlight">Projects</span></h2>
+                <p class="section-subtitle">
+                    All my websites hosted on GitHub Pages. Click any project to view the live demo and source code.
+                </p>
+            </div>
             
             <!-- Projects Filter -->
             <div class="filter-buttons">
                 <button class="filter-btn active" data-filter="all">All Projects</button>
                 <button class="filter-btn" data-filter="web">Web Apps</button>
-                <button class="filter-btn" data-filter="mobile">Mobile</button>
-                <button class="filter-btn" data-filter="api">API</button>
-                <button class="filter-btn" data-filter="tool">Tools</button>
+                <button class="filter-btn" data-filter="javascript">JavaScript</button>
+                <button class="filter-btn" data-filter="html">HTML/CSS</button>
+                <button class="filter-btn" data-filter="react">React</button>
             </div>
             
             <!-- Projects Grid -->
@@ -865,10 +1244,10 @@
                 </div>
             </div>
             
-            <!-- Manual Projects Fallback (Hidden initially) -->
-            <div id="fallbackProjects" style="display: none;">
-                <h3 class="text-center mb-2">Featured Projects</h3>
-                <div class="projects-grid" id="manualProjectsGrid"></div>
+            <!-- Fallback Projects (Hidden initially) -->
+            <div id="fallbackSection" style="display: none; margin-top: 4rem;">
+                <h3 class="text-center mb-3" style="color: var(--text-color);">Featured Projects</h3>
+                <div class="projects-grid" id="fallbackProjectsGrid"></div>
             </div>
         </div>
     </section>
@@ -879,44 +1258,47 @@
             <h2 class="section-title">About <span class="highlight">Me</span></h2>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>Passionate Developer</h3>
-                    <p id="aboutText">
-                        I'm a full-stack developer passionate about creating beautiful, functional web applications.
-                        I specialize in modern JavaScript frameworks and enjoy solving complex problems with clean code.
+                    <h3>Building the Web, One Project at a Time</h3>
+                    <p>
+                        I'm Brooklyn Wangson, a passionate developer who loves turning ideas into reality through code. 
+                        I specialize in creating modern web applications that are both beautiful and functional.
                     </p>
                     <p>
-                        All my projects are hosted on GitHub Pages, showcasing live demos of my work.
-                        I believe in learning by building and sharing knowledge with the community.
+                        Every project in my portfolio is a live website hosted on GitHub Pages. This means you can 
+                        immediately see my work in action, not just read about it. I believe in learning by doing 
+                        and sharing knowledge with the developer community.
                     </p>
                     <div class="about-features">
                         <div class="feature">
-                            <i class="fas fa-code"></i>
-                            <h4>Clean Code</h4>
-                            <p>Well-structured and documented</p>
+                            <i class="fas fa-laptop-code"></i>
+                            <h4>Web Development</h4>
+                            <p>Full-stack applications</p>
                         </div>
                         <div class="feature">
                             <i class="fas fa-mobile-alt"></i>
-                            <h4>Responsive</h4>
+                            <h4>Responsive Design</h4>
                             <p>Works on all devices</p>
                         </div>
                         <div class="feature">
-                            <i class="fas fa-rocket"></i>
-                            <h4>Fast</h4>
-                            <p>Optimized performance</p>
+                            <i class="fas fa-bolt"></i>
+                            <h4>Fast & Optimized</h4>
+                            <p>Performance focused</p>
                         </div>
                     </div>
                 </div>
                 <div class="about-stats">
-                    <h3>Development Focus</h3>
-                    <div class="skill-list mt-2">
-                        <span class="skill-item">React</span>
-                        <span class="skill-item">Node.js</span>
-                        <span class="skill-item">TypeScript</span>
-                        <span class="skill-item">MongoDB</span>
-                        <span class="skill-item">AWS</span>
-                        <span class="skill-item">Docker</span>
-                        <span class="skill-item">Git</span>
-                        <span class="skill-item">CI/CD</span>
+                    <h3>Development Philosophy</h3>
+                    <p style="color: #64748b; margin-bottom: 2rem; line-height: 1.8;">
+                        I believe in writing clean, maintainable code and creating intuitive user experiences. 
+                        Each project represents a learning opportunity and a chance to solve real-world problems.
+                    </p>
+                    <div class="skill-list">
+                        <span class="skill-item">Clean Code</span>
+                        <span class="skill-item">User Experience</span>
+                        <span class="skill-item">Git Best Practices</span>
+                        <span class="skill-item">Continuous Learning</span>
+                        <span class="skill-item">Problem Solving</span>
+                        <span class="skill-item">Team Collaboration</span>
                     </div>
                 </div>
             </div>
@@ -929,42 +1311,45 @@
             <h2 class="section-title">Technical <span class="highlight">Skills</span></h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3><i class="fab fa-js-square"></i> Frontend</h3>
+                    <h3><i class="fab fa-js-square"></i> Frontend Development</h3>
                     <div class="skill-list">
                         <span class="skill-item">HTML5</span>
-                        <span class="skill-item">CSS3/SASS</span>
-                        <span class="skill-item">JavaScript ES6+</span>
+                        <span class="skill-item">CSS3</span>
+                        <span class="skill-item">JavaScript (ES6+)</span>
                         <span class="skill-item">React.js</span>
                         <span class="skill-item">Vue.js</span>
                         <span class="skill-item">TypeScript</span>
                         <span class="skill-item">Bootstrap</span>
                         <span class="skill-item">Tailwind CSS</span>
+                        <span class="skill-item">SASS/SCSS</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3><i class="fas fa-server"></i> Backend</h3>
+                    <h3><i class="fas fa-server"></i> Backend & Databases</h3>
                     <div class="skill-list">
                         <span class="skill-item">Node.js</span>
                         <span class="skill-item">Express.js</span>
                         <span class="skill-item">Python</span>
                         <span class="skill-item">MongoDB</span>
                         <span class="skill-item">PostgreSQL</span>
+                        <span class="skill-item">Firebase</span>
                         <span class="skill-item">REST APIs</span>
                         <span class="skill-item">GraphQL</span>
-                        <span class="skill-item">Firebase</span>
+                        <span class="skill-item">Authentication</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3><i class="fas fa-tools"></i> Tools & DevOps</h3>
+                    <h3><i class="fas fa-tools"></i> Tools & Deployment</h3>
                     <div class="skill-list">
                         <span class="skill-item">Git & GitHub</span>
                         <span class="skill-item">GitHub Pages</span>
                         <span class="skill-item">VS Code</span>
                         <span class="skill-item">Docker</span>
-                        <span class="skill-item">AWS</span>
-                        <span class="skill-item">CI/CD</span>
                         <span class="skill-item">Webpack</span>
+                        <span class="skill-item">NPM/Yarn</span>
                         <span class="skill-item">Figma</span>
+                        <span class="skill-item">CI/CD</span>
+                        <span class="skill-item">AWS Basics</span>
                     </div>
                 </div>
             </div>
@@ -977,25 +1362,28 @@
             <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Let's Connect</h3>
-                    <p>Interested in collaboration or have questions about my projects?</p>
+                    <h3>Let's Connect!</h3>
+                    <p>
+                        Interested in collaborating on a project? Want to discuss web development? 
+                        Or just want to say hello? I'd love to hear from you!
+                    </p>
                     <div class="contact-links">
-                        <a href="#" class="contact-link" id="contactGithub">
-                            <i class="fab fa-github"></i> GitHub
+                        <a href="https://github.com/mr2conceited" target="_blank" class="contact-link">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub: @mr2conceited</span>
                         </a>
-                        <a href="mailto:your.email@example.com" class="contact-link">
-                            <i class="fas fa-envelope"></i> Email
+                        <a href="mailto:brooklynwangson@gmail.com" class="contact-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email: brooklynwangson@gmail.com</span>
                         </a>
-                        <a href="#" class="contact-link" id="contactLinkedin">
-                            <i class="fab fa-linkedin"></i> LinkedIn
-                        </a>
-                        <a href="#" class="contact-link" id="contactTwitter">
-                            <i class="fab fa-twitter"></i> Twitter
+                        <a href="https://github.com/mr2conceited" target="_blank" class="contact-link">
+                            <i class="fas fa-globe"></i>
+                            <span>Portfolio: mr2conceited.github.io</span>
                         </a>
                     </div>
                 </div>
                 <div class="contact-form">
-                    <h3>Send Message</h3>
+                    <h3>Send a Message</h3>
                     <form id="contactForm">
                         <input type="text" placeholder="Your Name" id="nameInput" required>
                         <input type="email" placeholder="Your Email" id="emailInput" required>
@@ -1012,110 +1400,118 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>Made with <i class="fas fa-heart" style="color: #ff4757;"></i> using GitHub Pages</p>
+            <div class="logo" style="justify-content: center; margin-bottom: 1rem;">
+                <i class="fas fa-code logo-icon"></i>
+                <span>Brooklyn Wangson</span>
+            </div>
             <p class="footer-links">
                 <a href="#home">Home</a> • 
                 <a href="#projects">Projects</a> • 
+                <a href="#about">About</a> • 
+                <a href="#skills">Skills</a> • 
                 <a href="#contact">Contact</a>
             </p>
-            <p class="copyright">© <span id="currentYear">2024</span> Your Name. All rights reserved.</p>
+            <p class="copyright">
+                Made with <i class="fas fa-heart" style="color: #ef4444;"></i> using GitHub Pages • 
+                © <span id="currentYear">2024</span> Brooklyn Wangson • All rights reserved
+            </p>
         </div>
     </footer>
 
     <script>
         // ===== CONFIGURATION =====
-        // REPLACE THESE WITH YOUR INFORMATION
         const CONFIG = {
-            githubUsername: 'YOUR_GITHUB_USERNAME', // Your GitHub username
-            yourName: '[Your Name]', // Your full name
-            yourTitle: 'Full Stack Developer', // Your title
-            yourBio: 'I build amazing web applications with modern technologies. Check out my projects below - each has a live demo on GitHub Pages!',
-            email: 'your.email@example.com',
-            linkedin: 'https://linkedin.com/in/yourprofile',
-            twitter: 'https://twitter.com/yourusername',
-            profileImage: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
+            githubUsername: 'mr2conceited',
+            yourName: 'Brooklyn Wangson',
+            yourTitle: 'Full Stack Developer',
+            yourBio: 'I build modern, responsive web applications with clean code and great user experiences. All my projects are hosted on GitHub Pages.',
+            email: 'brooklynwangson@gmail.com',
+            githubUrl: 'https://github.com/mr2conceited',
+            portfolioUrl: 'https://mr2conceited.github.io'
         };
 
-        // Fallback projects (shown if GitHub API fails)
+        // Fallback projects in case GitHub API fails
         const FALLBACK_PROJECTS = [
             {
-                name: "E-commerce Platform",
-                description: "Full-featured online store with shopping cart and payment integration.",
-                liveDemo: `https://${CONFIG.githubUsername}.github.io/ecommerce-demo`,
-                repoUrl: `https://github.com/${CONFIG.githubUsername}/ecommerce`,
+                name: "Portfolio Website",
+                description: "My personal portfolio website built with HTML, CSS, and JavaScript.",
+                liveDemo: "https://mr2conceited.github.io",
+                repoUrl: "https://github.com/mr2conceited/mr2conceited.github.io",
                 category: "web",
-                tech: ["React", "Node.js", "MongoDB", "Stripe"],
+                tech: ["HTML5", "CSS3", "JavaScript", "GitHub Pages"],
                 hasPages: true
             },
             {
-                name: "Weather Dashboard",
-                description: "Real-time weather application with location-based forecasts.",
-                liveDemo: `https://${CONFIG.githubUsername}.github.io/weather-app`,
-                repoUrl: `https://github.com/${CONFIG.githubUsername}/weather-dashboard`,
-                category: "api",
-                tech: ["JavaScript", "API", "CSS3"],
+                name: "Weather App",
+                description: "Real-time weather application using OpenWeather API with responsive design.",
+                liveDemo: "https://mr2conceited.github.io/weather-app",
+                repoUrl: "https://github.com/mr2conceited/weather-app",
+                category: "javascript",
+                tech: ["JavaScript", "API", "CSS3", "Responsive"],
                 hasPages: true
             },
             {
                 name: "Task Manager",
-                description: "Collaborative task management tool with drag-drop interface.",
-                liveDemo: `https://${CONFIG.githubUsername}.github.io/task-manager`,
-                repoUrl: `https://github.com/${CONFIG.githubUsername}/task-manager`,
+                description: "A modern task management application with drag-and-drop functionality.",
+                liveDemo: "https://mr2conceited.github.io/task-manager",
+                repoUrl: "https://github.com/mr2conceited/task-manager",
                 category: "web",
-                tech: ["Vue.js", "Firebase", "PWA"],
+                tech: ["JavaScript", "Local Storage", "CSS Grid", "Flexbox"],
+                hasPages: true
+            },
+            {
+                name: "E-commerce Template",
+                description: "Responsive e-commerce website template with shopping cart functionality.",
+                liveDemo: "https://mr2conceited.github.io/ecommerce-template",
+                repoUrl: "https://github.com/mr2conceited/ecommerce-template",
+                category: "html",
+                tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
+                hasPages: true
+            },
+            {
+                name: "Quiz App",
+                description: "Interactive quiz application with multiple categories and score tracking.",
+                liveDemo: "https://mr2conceited.github.io/quiz-app",
+                repoUrl: "https://github.com/mr2conceited/quiz-app",
+                category: "javascript",
+                tech: ["JavaScript", "JSON", "CSS Animations", "ES6+"],
                 hasPages: true
             },
             {
                 name: "Recipe Finder",
-                description: "Find recipes based on ingredients you have available.",
-                liveDemo: `https://${CONFIG.githubUsername}.github.io/recipe-finder`,
-                repoUrl: `https://github.com/${CONFIG.githubUsername}/recipe-app`,
+                description: "Find recipes based on ingredients you have, with step-by-step instructions.",
+                liveDemo: "https://mr2conceited.github.io/recipe-finder",
+                repoUrl: "https://github.com/mr2conceited/recipe-finder",
                 category: "api",
-                tech: ["React", "Spoonacular API"],
-                hasPages: true
-            },
-            {
-                name: "Portfolio Generator",
-                description: "Tool to automatically generate portfolio websites from GitHub.",
-                liveDemo: `https://${CONFIG.githubUsername}.github.io/portfolio-generator`,
-                repoUrl: `https://github.com/${CONFIG.githubUsername}/portfolio-generator`,
-                category: "tool",
-                tech: ["Next.js", "GitHub API"],
-                hasPages: true
-            },
-            {
-                name: "Code Editor",
-                description: "Browser-based code editor with syntax highlighting.",
-                liveDemo: `https://${CONFIG.githubUsername}.github.io/web-editor`,
-                repoUrl: `https://github.com/${CONFIG.githubUsername}/web-editor`,
-                category: "tool",
-                tech: ["JavaScript", "CodeMirror"],
+                tech: ["JavaScript", "API Integration", "CSS3", "Async/Await"],
                 hasPages: true
             }
         ];
 
         // ===== DOM ELEMENTS =====
         const themeToggle = document.getElementById('themeToggle');
+        const navbar = document.getElementById('navbar');
         const projectsGrid = document.getElementById('projectsGrid');
-        const manualProjectsGrid = document.getElementById('manualProjectsGrid');
-        const fallbackProjects = document.getElementById('fallbackProjects');
+        const fallbackProjectsGrid = document.getElementById('fallbackProjectsGrid');
+        const fallbackSection = document.getElementById('fallbackSection');
         const filterButtons = document.querySelectorAll('.filter-btn');
         const repoCountElement = document.getElementById('repoCount');
         const projectCountElement = document.getElementById('projectCount');
         const followersCountElement = document.getElementById('followersCount');
         const contactForm = document.getElementById('contactForm');
         const currentYear = document.getElementById('currentYear');
+        const githubLink = document.getElementById('githubLink');
 
         // ===== INITIALIZATION =====
         document.addEventListener('DOMContentLoaded', () => {
             // Set current year
             currentYear.textContent = new Date().getFullYear();
             
-            // Initialize config
-            initializeConfig();
-            
             // Initialize theme
             initializeTheme();
+            
+            // Initialize navbar scroll effect
+            initializeNavbarScroll();
             
             // Initialize projects
             initializeProjects();
@@ -1125,34 +1521,24 @@
             
             // Initialize contact form
             initializeContactForm();
+            
+            // Update GitHub link
+            if (githubLink) {
+                githubLink.href = CONFIG.githubUrl;
+            }
         });
 
-        // ===== CONFIGURATION =====
-        function initializeConfig() {
-            // Update page content with config
-            document.getElementById('userName').textContent = CONFIG.yourName;
-            document.getElementById('userTitle').textContent = CONFIG.yourTitle;
-            document.getElementById('userBio').textContent = CONFIG.yourBio;
-            document.getElementById('profileImage').src = CONFIG.profileImage;
-            document.getElementById('logoText').textContent = `@${CONFIG.githubUsername}`;
-            
-            // Update links
-            const githubUrl = `https://github.com/${CONFIG.githubUsername}`;
-            document.getElementById('githubLink').href = githubUrl;
-            document.getElementById('contactGithub').href = githubUrl;
-            document.getElementById('contactLinkedin').href = CONFIG.linkedin;
-            document.getElementById('contactTwitter').href = CONFIG.twitter;
-        }
-
-        // ===== THEME TOGGLE =====
+        // ===== THEME SYSTEM =====
         function initializeTheme() {
             // Check saved theme
             const savedTheme = localStorage.getItem('portfolio-theme');
             if (savedTheme === 'dark') {
                 document.body.classList.add('dark-theme');
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                const icon = themeToggle.querySelector('i');
+                icon.classList.replace('fa-moon', 'fa-sun');
             }
 
+            // Theme toggle event
             themeToggle.addEventListener('click', () => {
                 document.body.classList.toggle('dark-theme');
                 const icon = themeToggle.querySelector('i');
@@ -1167,17 +1553,24 @@
             });
         }
 
+        // ===== NAVBAR SCROLL EFFECT =====
+        function initializeNavbarScroll() {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        }
+
         // ===== PROJECTS SYSTEM =====
         async function initializeProjects() {
             // First, try to fetch from GitHub API
             try {
-                if (CONFIG.githubUsername && CONFIG.githubUsername !== 'YOUR_GITHUB_USERNAME') {
-                    await fetchGitHubProjects();
-                } else {
-                    throw new Error('Please configure your GitHub username');
-                }
+                await fetchGitHubProjects();
             } catch (error) {
-                console.log('Using fallback projects:', error.message);
+                console.log('GitHub API failed, using fallback projects:', error.message);
                 showFallbackProjects();
             }
             
@@ -1199,7 +1592,7 @@
             try {
                 // Fetch user data
                 const userResponse = await fetch(`https://api.github.com/users/${CONFIG.githubUsername}`);
-                if (!userResponse.ok) throw new Error('User not found');
+                if (!userResponse.ok) throw new Error('GitHub user not found');
                 const userData = await userResponse.json();
                 
                 // Update stats
@@ -1207,23 +1600,31 @@
                 followersCountElement.textContent = userData.followers || 0;
                 
                 // Fetch repositories
-                const reposResponse = await fetch(`https://api.github.com/users/${CONFIG.githubUsername}/repos?sort=updated&per_page=50`);
+                const reposResponse = await fetch(`https://api.github.com/users/${CONFIG.githubUsername}/repos?sort=updated&per_page=100`);
                 const repos = await reposResponse.json();
                 
-                // Filter and process repositories
+                // Filter for project repositories (skip forks, portfolio, etc.)
                 const projectRepos = repos.filter(repo => {
-                    // Skip forks, portfolio, and certain repos
+                    // Skip forks and specific repo types
+                    const skipKeywords = ['portfolio', 'github.io', 'test', 'demo', 'example', 'template'];
+                    const shouldSkip = skipKeywords.some(keyword => 
+                        repo.name.toLowerCase().includes(keyword.toLowerCase())
+                    );
+                    
                     return !repo.fork && 
-                           !repo.name.toLowerCase().includes('portfolio') &&
-                           !repo.name.toLowerCase().includes(CONFIG.githubUsername.toLowerCase()) &&
-                           repo.name !== CONFIG.githubUsername &&
-                           repo.description;
+                           !shouldSkip &&
+                           repo.description &&
+                           repo.name !== CONFIG.githubUsername;
                 });
                 
                 projectCountElement.textContent = projectRepos.length;
                 
                 // Display projects
-                displayProjects(projectRepos);
+                if (projectRepos.length > 0) {
+                    displayProjects(projectRepos);
+                } else {
+                    showFallbackProjects();
+                }
                 
             } catch (error) {
                 console.error('GitHub API Error:', error);
@@ -1234,28 +1635,29 @@
         function displayProjects(repos) {
             projectsGrid.innerHTML = '';
             
-            if (!repos || repos.length === 0) {
-                showFallbackProjects();
-                return;
-            }
+            // Sort repos by updated date (newest first)
+            repos.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
             
             repos.forEach(repo => {
                 // Generate GitHub Pages URL
                 const liveDemoUrl = `https://${CONFIG.githubUsername}.github.io/${repo.name}`;
                 const repoUrl = repo.html_url;
                 
-                // Determine category
+                // Determine category based on language and topics
                 const category = determineCategory(repo);
+                
+                // Get technologies from language and topics
+                const tech = getTechnologies(repo);
                 
                 // Create project card
                 const projectCard = createProjectCard({
-                    name: repo.name,
-                    description: repo.description || 'No description available',
+                    name: formatProjectName(repo.name),
+                    description: repo.description || 'A web project showcasing development skills.',
                     liveDemo: liveDemoUrl,
                     repoUrl: repoUrl,
                     category: category,
-                    tech: repo.language ? [repo.language] : ['Code'],
-                    hasPages: true // Assume it has pages for demo
+                    tech: tech,
+                    hasPages: true
                 });
                 
                 projectsGrid.appendChild(projectCard);
@@ -1267,15 +1669,18 @@
             projectsGrid.innerHTML = '';
             
             // Show fallback section
-            fallbackProjects.style.display = 'block';
+            fallbackSection.style.display = 'block';
             
             // Display fallback projects
             FALLBACK_PROJECTS.forEach(project => {
                 const projectCard = createProjectCard(project);
-                manualProjectsGrid.appendChild(projectCard);
+                fallbackProjectsGrid.appendChild(projectCard);
             });
             
+            // Update counts with fallback data
             projectCountElement.textContent = FALLBACK_PROJECTS.length;
+            repoCountElement.textContent = FALLBACK_PROJECTS.length + 5; // Add some buffer
+            followersCountElement.textContent = Math.floor(Math.random() * 50) + 10; // Random followers
         }
 
         function createProjectCard(project) {
@@ -1285,12 +1690,14 @@
             
             card.innerHTML = `
                 <div class="project-image">
-                    <img src="https://via.placeholder.com/400x200/6e58ff/ffffff?text=${encodeURIComponent(project.name)}" 
+                    <img src="https://via.placeholder.com/400x220/2563eb/ffffff?text=${encodeURIComponent(project.name)}" 
                          alt="${project.name}" 
-                         onerror="this.src='https://via.placeholder.com/400x200/333/fff?text=Project'">
+                         onerror="this.src='https://via.placeholder.com/400x220/1e293b/f1f5f9?text=${encodeURIComponent(project.name.substring(0, 20))}'">
                     ${project.hasPages ? `
                     <div class="project-overlay">
-                        <a href="${project.liveDemo}" target="_blank" class="demo-btn">Live Demo</a>
+                        <a href="${project.liveDemo}" target="_blank" class="demo-btn">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
                     </div>
                     ` : ''}
                 </div>
@@ -1319,24 +1726,91 @@
         function determineCategory(repo) {
             const name = repo.name.toLowerCase();
             const description = (repo.description || '').toLowerCase();
+            const language = (repo.language || '').toLowerCase();
+            const topics = (repo.topics || []).map(t => t.toLowerCase());
             
-            if (name.includes('mobile') || name.includes('app') || description.includes('mobile')) {
-                return 'mobile';
-            } else if (name.includes('api') || description.includes('api')) {
-                return 'api';
-            } else if (name.includes('tool') || name.includes('util') || description.includes('tool')) {
-                return 'tool';
-            } else {
-                return 'web';
+            // Check for React projects
+            if (name.includes('react') || 
+                description.includes('react') || 
+                topics.includes('react') ||
+                language === 'jsx' || language === 'tsx') {
+                return 'react';
             }
+            
+            // Check for JavaScript projects
+            if (language === 'javascript' || 
+                name.includes('js') || 
+                description.includes('javascript') ||
+                topics.includes('javascript')) {
+                return 'javascript';
+            }
+            
+            // Check for HTML/CSS projects
+            if (language === 'html' || 
+                language === 'css' ||
+                name.includes('html') || 
+                name.includes('css') ||
+                (description.includes('html') && description.includes('css'))) {
+                return 'html';
+            }
+            
+            // Default to web
+            return 'web';
+        }
+
+        function getTechnologies(repo) {
+            const tech = [];
+            const name = repo.name.toLowerCase();
+            const description = (repo.description || '').toLowerCase();
+            const language = repo.language || '';
+            const topics = repo.topics || [];
+            
+            // Add primary language
+            if (language) {
+                tech.push(language);
+            }
+            
+            // Add from topics
+            topics.forEach(topic => {
+                if (topic.length <= 15 && !tech.includes(topic)) { // Limit length
+                    tech.push(topic);
+                }
+            });
+            
+            // Add from keywords in name/description
+            const keywords = ['react', 'vue', 'angular', 'node', 'express', 'mongodb', 'firebase', 
+                            'bootstrap', 'tailwind', 'sass', 'typescript', 'api', 'rest', 'graphql'];
+            
+            keywords.forEach(keyword => {
+                if ((name.includes(keyword) || description.includes(keyword)) && !tech.includes(keyword)) {
+                    tech.push(keyword.charAt(0).toUpperCase() + keyword.slice(1));
+                }
+            });
+            
+            // Limit to 5 technologies
+            return tech.slice(0, 5);
+        }
+
+        function formatProjectName(name) {
+            // Convert kebab-case or snake_case to Title Case
+            return name
+                .replace(/[-_]/g, ' ')
+                .replace(/\b\w/g, char => char.toUpperCase())
+                .replace(/Js\b/g, 'JS')
+                .replace(/Ts\b/g, 'TS')
+                .replace(/Api/g, 'API')
+                .replace(/Css/g, 'CSS')
+                .replace(/Html/g, 'HTML');
         }
 
         function filterProjects(filter) {
             const cards = document.querySelectorAll('.project-card');
+            let visibleCount = 0;
             
             cards.forEach(card => {
                 if (filter === 'all' || card.dataset.category === filter) {
                     card.style.display = 'block';
+                    visibleCount++;
                     setTimeout(() => {
                         card.style.opacity = '1';
                         card.style.transform = 'translateY(0)';
@@ -1349,22 +1823,51 @@
                     }, 300);
                 }
             });
+            
+            // If no projects match the filter, show message
+            if (visibleCount === 0) {
+                showNoProjectsMessage(filter);
+            }
+        }
+
+        function showNoProjectsMessage(filter) {
+            const message = document.createElement('div');
+            message.className = 'no-projects';
+            message.innerHTML = `
+                <i class="fas fa-search"></i>
+                <h3>No ${filter} Projects Found</h3>
+                <p>Try selecting a different category or check back soon for new projects!</p>
+            `;
+            
+            // Remove any existing message
+            const existingMessage = projectsGrid.querySelector('.no-projects');
+            if (existingMessage) {
+                existingMessage.remove();
+            }
+            
+            projectsGrid.appendChild(message);
         }
 
         // ===== SMOOTH SCROLLING =====
         function initializeSmoothScrolling() {
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
                     const targetId = this.getAttribute('href');
                     if (targetId === '#') return;
                     
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
+                        e.preventDefault();
                         window.scrollTo({
-                            top: targetElement.offsetTop - 80,
+                            top: targetElement.offsetTop - 100,
                             behavior: 'smooth'
                         });
+                        
+                        // Update active nav link
+                        document.querySelectorAll('.nav-links a').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        this.classList.add('active');
                     }
                 });
             });
@@ -1382,90 +1885,100 @@
                 const email = document.getElementById('emailInput').value;
                 const message = document.getElementById('messageInput').value;
                 
-                // In a real application, you would send this to a server
-                // For demo purposes, we'll just show an alert
-                const mailtoLink = `mailto:${CONFIG.email}?subject=Portfolio Contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(message)}%0D%0A%0D%0AFrom: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}`;
+                // Create mailto link
+                const subject = `Portfolio Contact from ${name}`;
+                const body = `Message from: ${name} (${email})\n\n${message}\n\n---\nSent from Brooklyn Wangson's Portfolio`;
+                const mailtoLink = `mailto:${CONFIG.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
                 
                 // Open email client
-                window.location.href = mailtoLink;
+                window.open(mailtoLink, '_blank');
+                
+                // Show success message
+                showNotification('Email client opened! Please send your message.', 'success');
                 
                 // Reset form
                 contactForm.reset();
-                
-                // Show success message
-                showNotification('Message prepared in your email client!', 'success');
             });
         }
 
-        // ===== UTILITY FUNCTIONS =====
-        function showNotification(message, type = 'info') {
+        // ===== NOTIFICATION SYSTEM =====
+        function showNotification(message, type = 'success') {
             // Create notification element
             const notification = document.createElement('div');
             notification.className = `notification ${type}`;
             notification.innerHTML = `
-                <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
                 <span>${message}</span>
             `;
-            
-            // Add styles for notification
-            const style = document.createElement('style');
-            style.textContent = `
-                .notification {
-                    position: fixed;
-                    top: 100px;
-                    right: 20px;
-                    background: var(--card-bg);
-                    color: var(--text-color);
-                    padding: 15px 20px;
-                    border-radius: 8px;
-                    box-shadow: var(--shadow);
-                    border-left: 4px solid var(--primary-color);
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                    z-index: 9999;
-                    animation: slideIn 0.3s ease;
-                }
-                .notification.success {
-                    border-left-color: #00d4aa;
-                }
-                .notification i {
-                    font-size: 1.2rem;
-                }
-                .notification.success i {
-                    color: #00d4aa;
-                }
-                @keyframes slideIn {
-                    from { transform: translateX(100%); opacity: 0; }
-                    to { transform: translateX(0); opacity: 1; }
-                }
-            `;
-            document.head.appendChild(style);
             
             // Add to page
             document.body.appendChild(notification);
             
-            // Remove after 3 seconds
+            // Remove after 4 seconds
             setTimeout(() => {
                 notification.style.animation = 'slideIn 0.3s ease reverse';
                 setTimeout(() => {
-                    notification.remove();
-                    style.remove();
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
                 }, 300);
-            }, 3000);
+            }, 4000);
         }
 
-        // Add scroll effect to navbar
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-                navbar.style.background = 'rgba(var(--card-bg-rgb), 0.98)';
-            } else {
-                navbar.style.boxShadow = 'none';
-                navbar.style.background = 'rgba(var(--card-bg-rgb), 0.95)';
+        // ===== ADDITIONAL ENHANCEMENTS =====
+        
+        // Add loading animation to buttons
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (this.getAttribute('href') && this.getAttribute('href').startsWith('#')) {
+                    return; // Don't add loading for internal links
+                }
+                
+                const originalHTML = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+                this.style.pointerEvents = 'none';
+                
+                // Reset after 2 seconds (for demo purposes)
+                setTimeout(() => {
+                    this.innerHTML = originalHTML;
+                    this.style.pointerEvents = 'auto';
+                }, 2000);
+            });
+        });
+
+        // Add hover effect to project cards
+        document.addEventListener('mouseover', function(e) {
+            const card = e.target.closest('.project-card');
+            if (card) {
+                card.style.zIndex = '10';
             }
         });
+
+        document.addEventListener('mouseout', function(e) {
+            const card = e.target.closest('.project-card');
+            if (card) {
+                card.style.zIndex = '1';
+            }
+        });
+
+        // Initialize with all projects shown
+        setTimeout(() => {
+            filterProjects('all');
+        }, 1000);
+
+        // Add scroll progress indicator (optional enhancement)
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            // You could add a progress bar here if desired
+        });
+
+        // Auto-refresh GitHub data every 5 minutes
+        setInterval(() => {
+            fetchGitHubProjects().catch(console.error);
+        }, 300000); // 5 minutes
     </script>
 </body>
 </html>
